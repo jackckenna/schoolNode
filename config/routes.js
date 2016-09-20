@@ -3,12 +3,15 @@ var router = express.Router();
 
 var studentsController = require('../controllers/students')
 var teachersController = require('../controllers/teachers')
-
+var generalController = require('../controllers/general')
 // add routes here 
 //ROUTES GO BETWEEN RETQUIREMENTS AND THE LISTEN (HERE)
 
 
 //different syntax example using the "/" route 
+router.route("/")
+	.get(generalController.index)
+
 router.route("/students")
 	.get(studentsController.index)
 	.post(studentsController.create)
