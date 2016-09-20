@@ -12,6 +12,6 @@ app.set('view engine', 'ejs');
 app.use(layouts);
 
 // listen to the server 
-app.listen(3000 , function(){
+app.listen(process.env.PORT || 3000 , function(){
   console.log('app is listening on port 3000');
 });
