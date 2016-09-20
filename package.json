@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/jackckenna/schoolNode/issues"
   },
-  "homepage": "https://github.com/jackckenna/schoolNode#readme"
+  "homepage": "https://github.com/jackckenna/schoolNode#readme",
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-ejs-layouts": "^2.2.0"
+  }
 }

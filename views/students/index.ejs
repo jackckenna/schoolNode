@@ -1,0 +1,8 @@
+<h1>Welcome</h1>
+<% for(var i = 0; i < students.length; i++) { %>
+ <a href="/students/<%= students[i].id %>">View</a>
+ <h2><%= students[i].firstname %></h2>
+ <p><%= students[i].secondname %></p>
+ <p><%= students[i].Year %></p>
+
+<% } %>

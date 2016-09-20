@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var postsController = require('../controllers/posts')
+var studentsController = require('../controllers/students')
 
 // add routes here 
 //ROUTES GO BETWEEN RETQUIREMENTS AND THE LISTEN (HERE)
@@ -9,19 +9,19 @@ var postsController = require('../controllers/posts')
 
 //different syntax example using the "/" route 
 router.route("/students")
-	.get(postsController.index)
-	.post(postsController.create)
+	.get(studentsController.index)
+	.post(studentsController.create)
 
 router.route("/students/new")
-	.get(postsController.new)
+	.get(studentsController.new)
 
 router.route("/students/:id")
-	.get(postsController.show)
-	.put(postsController.update)
-	.delete(postsController.delete)
+	.get(studentsController.show)
+	.put(studentsController.update)
+	.delete(studentsController.delete)
 
 router.route('/students/:id/edit')
-	.get(postsController.edit);
+	.get(studentsController.edit);
 
 
 module.exports = router;

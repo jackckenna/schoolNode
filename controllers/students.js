@@ -1,7 +1,7 @@
 var students = [{
   id: 0,
-  firstName: "Adam",
-  secondName: "Flannel",
+  firstname: "Adam",
+  secondname: "Flannel",
   Year: "4"
 },
 {
@@ -22,12 +22,13 @@ var students = [{
 // INDEX
 function indexStudents(req, res) {
   res.render("students/index", {
+    students: students
   });
 }
 
 // SHOW
 function showStudents(req, res) {
-  
+
   var student = students[req.params.id];
   res.render("students/show" ,{
     title : "Student",
