@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var studentsController = require('../controllers/students')
+var teachersController = require('../controllers/teachers')
 
 // add routes here 
 //ROUTES GO BETWEEN RETQUIREMENTS AND THE LISTEN (HERE)
@@ -22,6 +23,21 @@ router.route("/students/:id")
 
 router.route('/students/:id/edit')
 	.get(studentsController.edit);
+
+router.route("/teachers")
+	.get(teachersController.index)
+	.post(teachersController.create)
+
+router.route("/teachers/new")
+	.get(teachersController.new)
+
+router.route("/teachers/:id")
+	.get(teachersController.show)
+	.put(teachersController.update)
+	.delete(teachersController.delete)
+
+router.route('/teachers/:id/edit')
+	.get(teachersController.edit);
 
 
 module.exports = router;
