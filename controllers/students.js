@@ -62,6 +62,7 @@ function newStudents(req, res) {
 // UPDATE
 function updateStudents(req, res) {
 
+  console.log("check");
   var student = students[req.params.id];
   student.firstname=req.body.firstname;
   student.secondname=req.body.secondname;
@@ -70,7 +71,7 @@ function updateStudents(req, res) {
   students[req.params.id]=student;
 
   res.redirect("/students");
-  
+
 }
 
 // DELETE
