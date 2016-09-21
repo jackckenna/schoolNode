@@ -1,60 +1,71 @@
-var students = [{
-  id: 0,
-  firstname: "Adam",
-  secondname: "Flannel",
-  Year: "4"
-},
-{
-    id: 1,
-    firstname : "Jack",
-    secondname: "Kenna",
-    Year: "5"
-},
-{
-    id: 2,
-    firstname : "Far",
-    secondname: "Bia",
-    Year: "5"
-}];
+// var students = [{
+//   id: 0,
+//   firstname: "Adam",
+//   secondname: "Flannel",
+//   Year: "4"
+// },
+// {
+//     id: 1,
+//     firstname : "Jack",
+//     secondname: "Kenna",
+//     Year: "5"
+// },
+// {
+//     id: 2,
+//     firstname : "Far",
+//     secondname: "Bia",
+//     Year: "5"
+// }];
 
 
+
+var Student = require("../models/student"); 
 
 // INDEX
 function indexStudents(req, res) {
-  res.render("students/index", {
-    students: students
-  });
+    Student.find({}, function(err, students){
+    res.render("students/index", {
+      students: students
+    });
+});
 }
 
 // SHOW
 function showStudents(req, res) {
 
-  var student = students[req.params.id];
-  res.render("students/show" ,{
-    title : "Student",
-    student : student
-
+    Student.findById(req.params.id, function(err, student){
+    if (!student) return res.status(404).send("Not Found");
+    if(err) return res.status(500).send(err);
+    res.render("students/show" ,{
+      title : "Student",
+      student : student
+    });
   });
+
 
 }
 
 // CREATE
 function createStudents(req, res) {
-  res.send("CREATE");
+    
+  Student.create(req.body, function(err, student){
+    if(err) console.log(err);
+    res.status(200).redirect("/students");
+  })
+
 }
 
 // NEW
 function newStudents(req, res) {
 
   var student = {
-    id: "",
     firstname: "",
     secondname: "",
     Year: ""
   };
 
   res.render("students/new", {
-   student: student,
+   students: student,
    edit:false
   });
 }
@@ -62,15 +73,12 @@ function newStudents(req, res) {
 // UPDATE
 function updateStudents(req, res) {
 
-  console.log("check");
-  var student = students[req.params.id];
-  student.firstname=req.body.firstname;
-  student.secondname=req.body.secondname;
-  student.Year=req.body.Year;
+ Student.findByIdAndUpdate(req.params.id, {$set : req.body }, function(err, student){
+       // redirect the user to a GET route. We'll go back to the INDEX.
+     
+    res.redirect("/students");
+  });
 
-  students[req.params.id]=student;
-
-  res.redirect("/students");
 
 }
 
@@ -82,9 +90,18 @@ function deleteStudents(req, res) {
 // EDIT
 function editStudents(req, res) {
 
-  res.render("students/edit", {
-    students: students[req.params.id],
-    edit:true
+  Student.findById(req.params.id , function(err, student) {
+      // check for errors or for no object found
+      if(!student) return res.status(404).send("Not found");
+      if(err) return res.status(500).send(err);
+
+      res.render("students/edit" , {
+        title: "Student",
+        students: student,
+        edit:true
+
+      });
+
   });
   
 }

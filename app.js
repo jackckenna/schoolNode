@@ -9,7 +9,6 @@ var layouts = require('express-ejs-layouts');
 
 mongoose.connect("mongodb://localhost/students");
 
-
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended:false }));
