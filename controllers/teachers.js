@@ -45,8 +45,17 @@ function createTeachers(req, res) {
 
 // NEW
 function newTeachers(req, res) {
-  res.render("teachers/new", {
 
+  var teacher = {
+    id: "",
+    firstname: "",
+    secondname: "",
+    subject: ""
+  };
+
+  res.render("teachers/new", {
+   teachers: teacher,
+   edit:false
   });
 }
 
@@ -62,7 +71,12 @@ function deleteTeachers(req, res) {
 
 // EDIT
 function editTeachers(req, res) {
-  res.send("EDIT:" + req.params.id);
+
+  res.render("teachers/edit", {
+    teachers: teachers[req.params.id],
+    edit:true
+  });
+
 }
 
 
