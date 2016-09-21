@@ -1,4 +1,5 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var app = express();
 var routes = require('./config/routes');
 var ejs = require('ejs');
@@ -6,6 +7,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var layouts = require('express-ejs-layouts');
 
+mongoose.connect("mongodb://localhost/students");
 
 
 app.set('view engine', 'ejs');
