@@ -45,14 +45,32 @@ function createStudents(req, res) {
 
 // NEW
 function newStudents(req, res) {
-  res.render("students/new", {
 
+  var student = {
+    id: "",
+    firstname: "",
+    secondname: "",
+    Year: ""
+  };
+
+  res.render("students/new", {
+   student: student,
+   edit:false
   });
 }
 
 // UPDATE
 function updateStudents(req, res) {
-  res.send("UPDATE:" + req.params.id);
+
+  var student = students[req.params.id];
+  student.firstname=req.body.firstname;
+  student.secondname=req.body.secondname;
+  student.Year=req.body.Year;
+
+  students[req.params.id]=student;
+
+  res.redirect("/students");
+  
 }
 
 // DELETE
@@ -62,7 +80,12 @@ function deleteStudents(req, res) {
 
 // EDIT
 function editStudents(req, res) {
-  res.send("EDIT:" + req.params.id);
+
+  res.render("students/edit", {
+    students: students[req.params.id],
+    edit:true
+  });
+  
 }
 
 
@@ -71,7 +94,7 @@ module.exports = {
   show : showStudents,
   create : createStudents,
   new : newStudents,
-  update : indexStudents,
+  update : updateStudents,
   delete : deleteStudents,
   edit : editStudents
 };
