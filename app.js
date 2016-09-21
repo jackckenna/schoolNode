@@ -7,8 +7,6 @@ var methodOverride = require('method-override');
 var layouts = require('express-ejs-layouts');
 
 
-
-
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended:false }));
@@ -26,7 +24,9 @@ app.use(routes);
 
 app.use(layouts);
 
-// listen to the server 
+app.use(routes);
+
+// listen to the server
 app.listen(process.env.PORT || 3000 , function(){
   console.log('app is listening on port 3000');
 });

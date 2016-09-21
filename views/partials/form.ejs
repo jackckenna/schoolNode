@@ -1,7 +1,7 @@
 <form action="/students/<%= students.id %>" method="POST">
 
 	<% if (edit) { %>
-	<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="_method" value="PUT">
 	<% } %>
 
 	<input type="text" name="id" placeholder="id" value="<%= students.id%>"/>
