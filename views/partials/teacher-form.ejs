@@ -4,10 +4,10 @@
 	<input type="hidden" name="_method" value="PUT">
 	<% } %>
 
-	<input type="text" name="firstname" placeholder="fname" value="<%= teachers.firstname%>"/>
-	<input type="text" name="secondname" placeholder="surname" value="<%= teachers.secondname%>"/>
-	<input type="text" name="subject" placeholder="subject" value="<%= teachers.subject%>"/>
+	<input type="text" name="firstname" placeholder="fname" value="<%= teachers.firstname%>" required/>
+	<input type="text" name="secondname" placeholder="surname" value="<%= teachers.secondname%>" required/>
+	<input type="text" name="subject" placeholder="subject" value="<%= teachers.subject%>" required/>
 
 
-	<input type="submit" name="submit" value="Save Student"/>
+	<input type="submit" name="submit" value="Save Teacher"/>
 </form>

@@ -1,4 +1,20 @@
-<h1><%=teacher.firstname%></h1>
-<p><%= teacher.secondname%></p>
-<p><%= teacher.subject%></p>
-<a href="/<%= teacher.id%>/edit">edit</a>
+<table border="1">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Subject</th>
+    <th>Options</th>
+  </tr>
+  <tr>
+	<td><%=teacher.firstname%></td>
+	<td><%= teacher.secondname%></td>
+	<td><%= teacher.subject%></td>
+    <td><a href="/teachers/<%= teacher.id%>/edit">Edit Teacher</a></td>
+    <td>
+      <form action="/teachers/<%= teacher.id %>" method="POST">
+	  <input type="hidden" name="_method" value="DELETE">
+	  <input type="submit" value="Delete">
+	  </form> 
+    </td>
+  </tr>
+</table>

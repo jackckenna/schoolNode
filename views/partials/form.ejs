@@ -4,9 +4,9 @@
 		<input type="hidden" name="_method" value="PUT">
 	<% } %>
 	
-	<input type="text" name="firstname" placeholder="fname" value="<%= students.firstname%>"/>
-	<input type="text" name="secondname" placeholder="surname" value="<%= students.secondname%>"/>
-	<input type="text" name="Year" placeholder="Year" value="<%= students.Year%>"/>
+	<input type="text" name="firstname" placeholder="fname" value="<%= students.firstname%>" required/>
+	<input type="text" name="secondname" placeholder="surname" value="<%= students.secondname%>" required/>
+	<input type="text" name="Year" placeholder="Year" value="<%= students.Year%>" required/>
 
 
 	<input type="submit" name="submit" value="Save Student"/>

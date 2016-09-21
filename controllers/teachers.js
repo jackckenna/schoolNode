@@ -62,7 +62,11 @@ function updateTeachers(req, res) {
 
 // DELETE
 function deleteTeachers(req, res) {
-  res.send("DELETE:" + req.params.id);
+    // tell the data store to remove the post with the id in the request
+  Teacher.findByIdAndRemove(req.params.id, function(err){
+    res.redirect("/teachers");
+  });
+
 }
 
 // EDIT
@@ -89,7 +93,7 @@ module.exports = {
   show : showTeachers,
   create : createTeachers,
   new : newTeachers,
-  update : indexTeachers,
+  update : updateTeachers,
   delete : deleteTeachers,
   edit : editTeachers
 };

@@ -63,7 +63,11 @@ function updateStudents(req, res) {
 
 // DELETE
 function deleteStudents(req, res) {
-  res.send("DELETE:" + req.params.id);
+  // tell the data store to remove the post with the id in the request
+  Student.findByIdAndRemove(req.params.id, function(err){
+    res.redirect("/students");
+  });
+
 }
 
 // EDIT
