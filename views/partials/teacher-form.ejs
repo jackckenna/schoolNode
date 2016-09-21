@@ -1,0 +1,14 @@
+<form action="/teachers/<%= teachers.id %>" method="POST">
+
+	<% if (edit) { %>
+	<input type="hidden" name="_method" value="PUT">
+	<% } %>
+
+	<input type="text" name="id" placeholder="id" value="<%= teachers.id%>"/>
+	<input type="text" name="firstname" placeholder="fname" value="<%= teachers.firstname%>"/>
+	<input type="text" name="secondname" placeholder="surname" value="<%= teachers.secondname%>"/>
+	<input type="text" name="subject" placeholder="subject" value="<%= teachers.Year%>"/>
+
+
+	<input type="submit" name="submit" value="Save Student"/>
+</form>
