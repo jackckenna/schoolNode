@@ -1,39 +1,63 @@
-
+var Teacher = require("../models/teacher"); 
 
 // INDEX
 function indexTeachers(req, res) {
-  res.render("teachers/index", {
-    teachers: teachers
-  });
+  Teacher.find({}, function(err, teachers){
+    res.render("teachers/index", {
+      teachers: teachers
+    });
+   }); 
 }
 
 // SHOW
 function showTeachers(req, res) {
 
-  var teacher = teachers[req.params.id];
-  res.render("teachers/show" ,{
-    title : "Student",
-    teachers : teacher
-
+ Teacher.findById(req.params.id, function(err, teacher){
+    if (!teacher) return res.status(404).send("Not Found");
+    if(err) return res.status(500).send(err);
+    res.render("teachers/show" ,{
+      title : "Teacher",
+      teacher : teacher
+    });
   });
 
 }
 
 // CREATE
 function createTeachers(req, res) {
-  res.send("CREATE");
+
+    Teacher.create(req.body, function(err, teacher){
+    if(err) console.log(err);
+    res.status(200).redirect("/teachers");
+  });
 }
 
 // NEW
 function newTeachers(req, res) {
-  res.render("teachers/new", {
 
+
+  var teacher = {
+    firstname: "",
+    secondname: "",
+    subject: ""
+  };
+
+  res.render("teachers/new", {
+     teachers: teacher,
+     edit:false
   });
+
+
 }
 
 // UPDATE
 function updateTeachers(req, res) {
-  res.send("UPDATE:" + req.params.id);
+
+   Teacher.findByIdAndUpdate(req.params.id, {$set : req.body }, function(err, teacher){
+       // redirect the user to a GET route. We'll go back to the INDEX.
+    res.redirect("/teachers");
+  });
+
 }
 
 // DELETE
@@ -43,7 +67,20 @@ function deleteTeachers(req, res) {
 
 // EDIT
 function editTeachers(req, res) {
-  res.send("EDIT:" + req.params.id);
+
+   Teacher.findById(req.params.id , function(err, teacher) {
+      // check for errors or for no object found
+      if(!teacher) return res.status(404).send("Not found");
+      if(err) return res.status(500).send(err);
+
+      res.render("teachers/edit" , {
+        title: "Teacher",
+        teachers: teacher,
+        edit:true
+
+      });
+
+  });
 }
 
 
