@@ -1,24 +1,3 @@
-// var students = [{
-//   id: 0,
-//   firstname: "Adam",
-//   secondname: "Flannel",
-//   Year: "4"
-// },
-// {
-//     id: 1,
-//     firstname : "Jack",
-//     secondname: "Kenna",
-//     Year: "5"
-// },
-// {
-//     id: 2,
-//     firstname : "Far",
-//     secondname: "Bia",
-//     Year: "5"
-// }];
-
-
-
 var Student = require("../models/student"); 
 
 // INDEX

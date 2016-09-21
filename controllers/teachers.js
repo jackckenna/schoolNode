@@ -1,22 +1,3 @@
-var teachers = [{
-  id: 0,
-  firstname: "Ollie ",
-  secondname: "Molie",
-  subject: "Sub"
-},
-{
-    id: 1,
-    firstname : "Ben",
-    secondname: "Allen",
-    subject: "everything"
-},
-{
-    id: 2,
-    firstname : "Dan",
-    secondname: "Smith",
-    subject: "swimming"
-}];
-
 
 
 // INDEX
