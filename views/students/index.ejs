@@ -1,8 +1,20 @@
 <h1>Welcome</h1>
-<% for(var i = 0; i < students.length; i++) { %>
- <a href="/students/<%= students[i].id %>">View</a>
- <h2><%= students[i].firstname %></h2>
- <p><%= students[i].secondname %></p>
- <p><%= students[i].Year %></p>
 
-<% } %>
+<table border="1">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Year</th>
+    <th>Options</th>
+  </tr>
+  
+  	<% for(var i = 0; i < students.length; i++) { %>
+		 <tr>
+		 <td><%= students[i].firstname %></td>
+		 <td><%= students[i].secondname %></td>
+		 <td><%= students[i].Year %></td>
+		 <td><a href="/students/<%= students[i].id %>">View</a></td> 
+		 </tr>
+	<% } %>
+ 
+</table>

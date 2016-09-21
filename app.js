@@ -7,6 +7,7 @@ var methodOverride = require('method-override');
 var layouts = require('express-ejs-layouts');
 
 
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended:false }));
@@ -19,8 +20,6 @@ app.use(methodOverride(function(req, res){
     return method;
   }
 }))
-
-app.use(routes);
 
 app.use(layouts);
 
