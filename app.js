@@ -9,6 +9,8 @@ var layouts = require('express-ejs-layouts');
 
 app.set('view engine', 'ejs');
 
+app.use(routes);
+
 app.use(bodyParser.urlencoded({ extended:false }));
 
 app.use(methodOverride(function(req, res){
@@ -22,8 +24,6 @@ app.use(methodOverride(function(req, res){
 
 
 app.use(layouts);
-
-app.use(routes);
 
 // listen to the server
 app.listen(process.env.PORT || 3000 , function(){
