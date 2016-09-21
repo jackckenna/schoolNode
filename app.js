@@ -7,11 +7,6 @@ var methodOverride = require('method-override');
 var layouts = require('express-ejs-layouts');
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a9ce4e037150b371aa5dbf495813d708079067b7
-
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended:false }));
