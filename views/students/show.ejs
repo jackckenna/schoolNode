@@ -1,4 +1,14 @@
-<h1><%=student.firstname%></h1>
-<p><%= student.secondname%></p>
-<p><%= student.Year%></p>
-<a href="/<%= student.id%>/edit">edit</a>
+<table border="1">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Year</th>
+    <th>Options</th>
+  </tr>
+  <tr>
+    <td><%=student.firstname%></td>
+    <td><%= student.secondname%></td>
+    <td><%= student.Year%></td>
+    <td><a href="/<%= student.id%>/edit">Edit Students</a></td>
+  </tr>
+</table>

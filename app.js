@@ -20,7 +20,6 @@ app.use(methodOverride(function(req, res){
   }
 }))
 
-app.use(routes);
 
 app.use(layouts);
 
