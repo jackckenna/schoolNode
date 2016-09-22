@@ -5,7 +5,7 @@
     <th>Subject</th>
     <th>Options</th>
   </tr>
-  <tr>
+  <tr id="<%= teacher.id %>">
 	<td><%=teacher.firstname%></td>
 	<td><%= teacher.secondname%></td>
 	<td><%= teacher.subject%></td>
@@ -13,7 +13,7 @@
     <td>
       <form action="/teachers/<%= teacher.id %>" method="POST">
 	  <input type="hidden" name="_method" value="DELETE">
-	  <input type="submit" value="Delete">
+	  <input type="submit" value="Delete" id="delete" >
 	  </form> 
     </td>
   </tr>
