@@ -1,4 +1,4 @@
-var Student = require("../models/student"); 
+  var Student = require("../models/student"); 
 
 // INDEX
 function indexStudents(req, res) {
