@@ -15,6 +15,8 @@ var User = require('./models/user');
 
 app.set('view engine', 'ejs');
 
+app.use(express.static(""));
+
 app.use(bodyParser.urlencoded({ extended:false }));
 
 app.use(session({
