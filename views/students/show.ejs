@@ -1,11 +1,14 @@
-<table border="1">
+<h1>View Student</h1>
+
+<table border="1" class="qa-show-student">
   <tr>
     <th>First name</th>
     <th>Last name</th>
     <th>Year</th>
     <th>Options</th>
+    <th>More Options</th>
   </tr>
-  <tr>
+  <tr id="<%= student.id%>">
     <td><%=student.firstname%></td>
     <td><%= student.secondname%></td>
     <td><%= student.Year%></td>
@@ -13,7 +16,7 @@
     <td>
       <form action="/students/<%= student.id %>" method="POST">
       <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete">
+      <input type="submit" value="Delete" id="delete" >
       </form> 
     </td>
   </tr>
