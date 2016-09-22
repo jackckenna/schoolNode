@@ -158,6 +158,7 @@ textarea {
 }
 
 #login-form{
+	width:50%;
 	margin:0 auto;
 	text-align: center;
     position: absolute;
@@ -169,4 +170,18 @@ textarea {
 #logout{
 	background: black;
 	color: white;
+}
+
+.home-page-btn{
+	
+	color: black;
+}
+
+#home{
+	margin-top: 3%;
+}
+
+
+#login-align{
+	text-align: center;
 }
