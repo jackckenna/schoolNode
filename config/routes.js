@@ -1,12 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-var studentsController = require('../controllers/students')
-var teachersController = require('../controllers/teachers')
-var generalController = require('../controllers/general')
+var studentsController = require('../controllers/students');
+var teachersController = require('../controllers/teachers');
+var generalController = require('../controllers/general');
+var usersController = require('../controllers/users');
+var sessionsController = require('../controllers/sessions');
 // add routes here 
 //ROUTES GO BETWEEN RETQUIREMENTS AND THE LISTEN (HERE)
 
+
+// Sessions routes
+router.route('/sessions')
+      .post(sessionsController.create)
+      .delete(sessionsController.delete);
+
+router.route('/sessions/new')
+      .get(sessionsController.new);
 
 //different syntax example using the "/" route 
 router.route("/")
@@ -41,6 +51,13 @@ router.route("/teachers/:id")
 
 router.route('/teachers/:id/edit')
 	.get(teachersController.edit);
+
+	// User routes
+router.route('/users')
+      .post(usersController.create);
+
+router.route('/users/new')
+      .get(usersController.new);
 
 
 module.exports = router;

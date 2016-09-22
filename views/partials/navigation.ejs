@@ -1,7 +1,19 @@
 <nav>
- <a href="/students">Students</a>
- <a href="/students/new">New Student</a>
- <br><br>
- <a href="/teachers">Teachers</a>
- <a href="/teachers/new">New Teacher</a>
+  <ul>
+    <% if(user.id) { %>
+      <form action="/sessions" method="POST">
+      <li><a href="/">Home</a></li>
+      <li><a href="/students">Students</a></li>
+  	  <li><a href="/students/new">New Student</a></li>
+  	  <li><a href="/teachers">Teachers</a></li>
+  	  <li><a href="/teachers/new">New Teacher</a></li>
+  	  <li><input type="hidden" name="_method" value="DELETE">     
+  	  <input id="logout" type="submit" value="Logout"></li> 
+      </form>
+      <p>Welcome, <%= user.first_name %></p>
+    <% } else { %>
+      <li><a href="/sessions/new">Login</a></li>
+      <li><a href="/users/new">Register</a></li>
+    <% } %>
+    </ul>
 </nav>
