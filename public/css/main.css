@@ -183,7 +183,7 @@ ul li a:hover + .hidden, .hidden:hover {
 
 /* When the input field gets focus, change its width to 100% */
 input[type=text], input[type=password] {
-    width: 630px;
+  
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -196,10 +196,6 @@ input[type=text], input[type=password] {
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
-    width: 100%;
-}
-
 
 textarea {
     width: 100%;
@@ -210,4 +206,12 @@ textarea {
     border-radius: 4px;
     background-color: #f8f8f8;
     resize: none;
+}
+
+#login-form{
+	text-align: center;
+	left: 30%;
+    
+    position: absolute;
+
 }
